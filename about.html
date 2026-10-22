@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Enoogi.Studio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#15120f"/>
+  <rect x="30" y="24" width="40" height="52" rx="2" fill="none" stroke="#c8ab86" stroke-width="1.5"/>
+  <circle cx="50" cy="46" r="11" fill="#c8ab86" opacity="0.85"/>
+  <text x="50" y="90" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#e9e2d7" text-anchor="middle">ENOOGI</text>
+</svg>
+</template>
+<x-dc>
+<helmet>
+<style>
+  html,body{margin:0;background:#15120f}
+  *{-webkit-font-smoothing:antialiased;box-sizing:border-box}
+  @keyframes lightBreath{0%,100%{opacity:.85}50%{opacity:1}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  a{color:inherit}
+</style>
+</helmet>
+
+<div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da">
+
+  <!-- ===== NAV ===== -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;pointer-events:none">
+    <a href="index.html" style="font-size:15px;font-weight:600;letter-spacing:.2em;color:#e9e2d7;text-decoration:none;pointer-events:auto;transition:color .25s ease" style-hover="color:#f3ede2">ENOOGI.STUDIO</a>
+    <div style="display:flex;gap:36px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:auto">
+      <a href="index.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Home</a>
+      <a href="gallery.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Gallery</a>
+      <a href="gallery.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Commissions</a>
+      <span style="color:#e9e2d7">About</span>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section style="position:relative;min-height:78vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:160px 8vw 96px;background:linear-gradient(180deg,#37322b 0%,#302a21 46%,#28221b 70%,#1e1813 100%)">
+    <div style="position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:820px;max-width:120vw;height:900px;background:radial-gradient(46% 52% at 50% 26%,rgba(255,239,212,.16),rgba(255,239,212,.05) 46%,transparent 70%);pointer-events:none;filter:blur(6px);animation:lightBreath 9s ease-in-out infinite"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#c8ab86">About Enoogi.Studio</div>
+      <h1 style="margin:30px 0 0;font-size:62px;font-weight:200;line-height:1.05;letter-spacing:-0.02em;color:#efe9df">Hello, I'm Inwook.</h1>
+      <p style="margin:26px 0 0;max-width:520px;font-size:16px;font-weight:300;line-height:1.78;color:rgba(236,229,218,.64)">I paint the ones we love — pets, people, the small moments worth keeping — one at a time, in watercolour and ink.</p>
+    </div>
+  </section>
+
+  <!-- ===== STORY ===== -->
+  <section data-reveal="1" style="padding:120px 8vw;background:radial-gradient(120% 80% at 50% 26%,#2a2620 0%,#221e1a 56%,#17130f 100%)">
+    <div style="display:flex;align-items:center;justify-content:center;gap:6vw;max-width:1120px;margin:0 auto;flex-wrap:wrap">
+      <img src="art/web_maltese.png" alt="A watercolour portrait by Inwook Kim" style="display:block;width:360px;max-width:42vw;height:auto;box-shadow:0 70px 110px -34px rgba(0,0,0,.82),0 24px 50px -28px rgba(0,0,0,.55)">
+      <div style="max-width:430px;min-width:280px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#c8ab86">The hand behind the work</div>
+        <h2 style="margin:18px 0 0;font-size:38px;font-weight:200;line-height:1.12;letter-spacing:-0.015em;color:#efe9df">One at a time,<br>never replicated.</h2>
+        <div style="margin-top:26px;display:flex;flex-direction:column;gap:18px;font-size:15px;font-weight:300;line-height:1.85;color:rgba(236,229,218,.7)">
+          <p style="margin:0">My work is rooted in simplicity and intention. Watercolour lets me build depth, softness and warmth, while ink keeps the line clean and the form alive. Whether you choose a full watercolour portrait or a minimal sketch, every piece is made by hand and never reproduced.</p>
+          <p style="margin:0">I believe meaningful art should feel personal. I work closely from your reference photos and approach every commission with care, patience and respect for the subject — pieces made to celebrate loved ones, honour pets, and hold on to special moments.</p>
+          <p style="margin:0">Each artwork is original, hand-painted, and made to be cherished for years to come.</p>
+        </div>
+        <div style="margin-top:30px;display:flex;align-items:center;gap:14px">
+          <div style="width:34px;height:1px;background:#c8ab86"></div>
+          <div style="font-size:13px;font-weight:400;letter-spacing:.04em;color:rgba(236,229,218,.78)">Inwook Kim · Founder &amp; artist</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PULL QUOTE ===== -->
+  <section data-reveal="1" style="padding:120px 8vw;background:#15120f;text-align:center">
+    <div style="width:42px;height:1px;background:#c8ab86;margin:0 auto 40px"></div>
+    <p style="max-width:760px;margin:0 auto;font-size:30px;font-weight:200;line-height:1.5;letter-spacing:-0.01em;color:#e7e0d4">No two are ever the same, and none are reproduced. I hope yours feels like it was made only for you — because it was.</p>
+  </section>
+
+  <!-- ===== CRAFT ===== -->
+  <sc-if value="{{ showCraft }}" hint-placeholder-val="{{ true }}">
+    <section data-reveal="1" style="padding:120px 8vw;background:radial-gradient(120% 80% at 50% 30%,#2a2620 0%,#221e1a 56%,#17130f 100%)">
+      <div style="max-width:1080px;margin:0 auto">
+        <div style="text-align:center">
+          <div style="font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#c8ab86">Materials &amp; craft</div>
+          <h2 style="margin:18px 0 0;font-size:40px;font-weight:200;letter-spacing:-0.015em;color:#efe9df">Made to last a lifetime.</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px">
+          <div style="padding:36px 30px;border:1px solid rgba(236,229,218,.12);background:rgba(236,229,218,.02)">
+            <div style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#c8ab86">01 — Paper</div>
+            <h3 style="margin:18px 0 0;font-size:22px;font-weight:300;color:#ece5da">Cotton, archival</h3>
+            <p style="margin:14px 0 0;font-size:14px;font-weight:300;line-height:1.8;color:rgba(236,229,218,.62)">Heavyweight 100% cotton watercolour paper — acid-free and archival, so colour stays true for decades.</p>
+          </div>
+          <div style="padding:36px 30px;border:1px solid rgba(236,229,218,.12);background:rgba(236,229,218,.02)">
+            <div style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#c8ab86">02 — Pigment &amp; ink</div>
+            <h3 style="margin:18px 0 0;font-size:22px;font-weight:300;color:#ece5da">Layered by hand</h3>
+            <p style="margin:14px 0 0;font-size:14px;font-weight:300;line-height:1.8;color:rgba(236,229,218,.62)">Artist-grade watercolour and ink, built up slowly in washes. Lightfast and luminous — painted, never printed.</p>
+          </div>
+          <div style="padding:36px 30px;border:1px solid rgba(236,229,218,.12);background:rgba(236,229,218,.02)">
+            <div style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#c8ab86">03 — Framing</div>
+            <h3 style="margin:18px 0 0;font-size:22px;font-weight:300;color:#ece5da">Finished in oak</h3>
+            <p style="margin:14px 0 0;font-size:14px;font-weight:300;line-height:1.8;color:rgba(236,229,218,.62)">Each original is set in a solid oak frame and packed with care — ready to hang the day it arrives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ===== STUDIO LOCATION ===== -->
+  <sc-if value="{{ showLocation }}" hint-placeholder-val="{{ true }}">
+    <section data-reveal="1" style="padding:120px 8vw;background:#15120f">
+      <div style="display:flex;align-items:center;justify-content:center;gap:6vw;max-width:1080px;margin:0 auto;flex-wrap:wrap">
+        <div style="max-width:440px;min-width:280px">
+          <div style="font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#c8ab86">The studio</div>
+          <h2 style="margin:18px 0 0;font-size:38px;font-weight:200;line-height:1.12;letter-spacing:-0.015em;color:#efe9df">A small, quiet room.</h2>
+          <p style="margin:24px 0 0;font-size:15px;font-weight:300;line-height:1.85;color:rgba(236,229,218,.7)">Enoogi.Studio is a home studio where every portrait is painted by hand, one at a time. When a piece is finished, it's signed, carefully packed, and shipped worldwide — flat and tracked, so it arrives exactly as it left the desk.</p>
+          <div style="margin-top:28px;display:flex;gap:40px;flex-wrap:wrap">
+            <div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.45)">Turnaround</div>
+              <div style="margin-top:8px;font-size:16px;font-weight:300;color:#ece5da">2–4 weeks</div>
+            </div>
+            <div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.45)">Shipping</div>
+              <div style="margin-top:8px;font-size:16px;font-weight:300;color:#ece5da">Worldwide</div>
+            </div>
+          </div>
+        </div>
+        <img src="art/web_puppy.png" alt="A framed watercolour resting in the studio" style="display:block;width:340px;max-width:40vw;height:auto;box-shadow:0 70px 110px -34px rgba(0,0,0,.82),0 24px 50px -28px rgba(0,0,0,.55)">
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ===== CONTACT ===== -->
+  <section data-reveal="1" style="position:relative;overflow:hidden;padding:130px 8vw;text-align:center;background:radial-gradient(120% 92% at 50% 50%,#332d26 0%,#262320 52%,#1c1916 100%)">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#c8ab86">Say hello</div>
+    <h2 style="margin:26px 0 0;font-size:54px;font-weight:200;line-height:1.06;letter-spacing:-0.02em;color:#efe9df">Let's make<br>something lasting.</h2>
+    <p style="margin:26px 0 0;max-width:480px;margin-left:auto;margin-right:auto;font-size:15px;font-weight:300;line-height:1.8;color:rgba(236,229,218,.62)">For commissions, prints, or just to talk about your pet — I'd love to hear from you.</p>
+    <div style="margin-top:42px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="mailto:enoogi.studio@gmail.com" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#241f1a;text-decoration:none">enoogi.studio@gmail.com</a>
+      <a href="https://instagram.com/enoogi.studio" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;border:1px solid rgba(236,229,218,.35);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#ece5da;text-decoration:none">@enoogi.studio</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <div style="padding:42px 8vw;display:flex;align-items:center;justify-content:space-between;background:#120f0c;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(236,229,218,.07)">
+    <div style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;letter-spacing:.2em;color:#e9e2d7">ENOOGI.STUDIO<span style="width:5px;height:5px;border-radius:50%;background:rgba(200,171,134,.4)"></span></div>
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.4)">Watercolour &amp; ink · Originals &amp; commissions</div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;showCraft&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showLocation&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals(){
+    return {
+      showCraft: this.props.showCraft ?? true,
+      showLocation: this.props.showLocation ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>

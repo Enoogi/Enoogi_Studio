@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery — Enoogi.Studio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#15120f"/>
+  <rect x="30" y="24" width="40" height="52" rx="2" fill="none" stroke="#c8ab86" stroke-width="1.5"/>
+  <circle cx="50" cy="46" r="11" fill="#c8ab86" opacity="0.85"/>
+  <text x="50" y="90" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#e9e2d7" text-anchor="middle">ENOOGI</text>
+</svg>
+</template>
+<x-dc>
+<helmet>
+<style>
+  html,body{height:100%;margin:0;background:#211e1b}
+  *{-webkit-font-smoothing:antialiased}
+  ::-webkit-scrollbar{width:0;height:0}
+  @keyframes cuePulse{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:.75;transform:translateY(7px)}}
+  input::placeholder,textarea::placeholder{color:rgba(236,229,218,.32)}
+</style>
+</helmet>
+
+<!-- ===================== FIXED NAV ===================== -->
+<div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;pointer-events:none">
+  <a href="index.html" style="font-size:15px;font-weight:600;letter-spacing:.2em;color:#e9e2d7;text-decoration:none;pointer-events:auto;transition:color .25s ease" style-hover="color:#f3ede2">ENOOGI.STUDIO</a>
+  <div style="display:flex;gap:36px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:auto">
+    <a href="index.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Home</a>
+    <span style="color:#e9e2d7">Gallery</span>
+    <span onClick="{{ openCommission }}" style="color:rgba(233,226,215,.6);cursor:pointer;transition:color .25s ease" style-hover="color:#e9e2d7">Commissions</span>
+    <a href="about.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">About</a>
+  </div>
+</div>
+
+<!-- ===================== SCROLL CONTAINER ===================== -->
+<div ref="{{ setScrollRef }}" style="height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+
+  <!-- ===== COVER ===== -->
+  <section data-screen-label="Cover" style="min-height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 8vw;background:radial-gradient(120% 92% at 50% 42%,#3a332c 0%,#2a2622 48%,#201d1a 100%)">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:rgba(233,226,215,.6)">Watercolour pet portraits &amp; commissions</div>
+    <h1 style="margin:30px 0 0;font-size:84px;font-weight:200;line-height:1.04;letter-spacing:-0.02em;color:#efe9df">Every portrait,<br>its own light.</h1>
+    <p style="margin:30px 0 0;max-width:520px;font-size:16px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.62)">A quiet gallery shown the way a museum shows a masterpiece — one painting to a room, unhurried, with space to breathe.</p>
+    <div style="position:absolute;bottom:40px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:12px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:rgba(233,226,215,.5)">Enter the gallery</div>
+      <svg width="22" height="26" viewBox="0 0 22 26" fill="none" style="animation:cuePulse 2.4s ease-in-out infinite"><path d="M11 1v22M3 15l8 8 8-8" stroke="rgba(233,226,215,.6)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== ROOM 01 — corgi, painting left ===== -->
+  <section data-screen-label="Room 01" data-reveal="1" data-index="0" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <!-- FRAMED PIECE -->
+      <img src="art/web_corgi.png" alt="Biscuit, watercolour corgi" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <!-- LABEL -->
+      <div style="max-width:300px;min-width:240px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">01 / 04</div>
+        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Biscuit</div>
+        <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2025</div>
+        <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A corgi caught mid-thought, in washes of apricot and ink.</p>
+        <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
+        <div style="font-size:14px;line-height:1.85;color:rgba(236,229,218,.72)">Watercolour &amp; ink on cotton paper<br>9" × 12" · Framed in oak</div>
+        <div style="margin-top:22px;font-size:22px;font-weight:300;color:#ece5da">$195</div>
+        <div onClick="{{ openA0 }}" style="margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:1px solid rgba(236,229,218,.35);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#ece5da;cursor:pointer">Acquire this piece →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROOM 02 — maltese, painting right ===== -->
+  <section data-screen-label="Room 02" data-reveal="1" data-index="1" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <img src="art/web_maltese.png" alt="Honey, watercolour maltese" style="display:block;width:380px;max-width:40vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <div style="max-width:300px;min-width:240px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">02 / 04</div>
+        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Honey</div>
+        <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2024</div>
+        <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A maltese in a borrowed scarf, all soft greys and quiet attention.</p>
+        <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
+        <div style="font-size:14px;line-height:1.85;color:rgba(236,229,218,.72)">Watercolour &amp; ink on paper<br>9" × 12" · Framed in oak</div>
+        <div style="margin-top:22px;display:flex;align-items:baseline;gap:12px"><span style="font-size:22px;font-weight:300;color:rgba(236,229,218,.42);text-decoration:line-through">$195</span><span style="font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d98c7a;border:1px solid rgba(217,140,122,.5);padding:4px 9px;border-radius:20px">Original sold out</span></div>
+        <div style="margin-top:10px;font-size:13px;font-weight:300;color:rgba(236,229,218,.6)">Prints available — from <span style="color:#ece5da">$5</span></div>
+        <div onClick="{{ openA1 }}" style="margin-top:20px;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:1px solid rgba(236,229,218,.35);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#ece5da;cursor:pointer">Order a print — from $5 →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROOM 03 — sleeping puppy, painting left ===== -->
+  <!-- ===== ROOM 03 — loom cats, landscape ===== -->
+  <section data-screen-label="Room 03" data-reveal="1" data-index="2" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <img src="art/web_loomcats.png" alt="Off the Clock, watercolour cats on a loom" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <div style="max-width:300px;min-width:240px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">03 / 04</div>
+        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Off the Clock</div>
+        <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2026</div>
+        <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A giant cat dozes atop a bus station while an enormous ball of fur looms behind — from the Giant Animal series, slipping fantasy scale into ordinary scenes.</p>
+        <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
+        <div style="font-size:14px;line-height:1.85;color:rgba(236,229,218,.72)">Watercolour &amp; ink on paper<br>12" × 9" · Framed in oak</div>
+        <div style="margin-top:22px;font-size:22px;font-weight:300;color:#ece5da">$195</div>
+        <div onClick="{{ openA3 }}" style="margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:1px solid rgba(236,229,218,.35);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#ece5da;cursor:pointer">Acquire this piece →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROOM 04 — vending cat, portrait ===== -->
+  <section data-screen-label="Room 04" data-reveal="1" data-index="3" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <img src="art/web_vending.png" alt="Self-Service, watercolour cat beside a vending machine" style="display:block;width:380px;max-width:40vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <div style="max-width:300px;min-width:240px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">04 / 04</div>
+        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Self-Service</div>
+        <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2026</div>
+        <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A giant cat looms behind a Coke vending machine, resting a paw on top as if the whole thing were a toy — another from the Giant Animal series.</p>
+        <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
+        <div style="font-size:14px;line-height:1.85;color:rgba(236,229,218,.72)">Watercolour &amp; ink on paper<br>9" × 12" · Framed in oak</div>
+        <div style="margin-top:22px;font-size:22px;font-weight:300;color:#ece5da">$195</div>
+        <div onClick="{{ openA4 }}" style="margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:1px solid rgba(236,229,218,.35);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#ece5da;cursor:pointer">Acquire this piece →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMISSION CTA ===== -->
+  <section data-screen-label="Commission CTA" style="min-height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 8vw;background:radial-gradient(120% 92% at 50% 50%,#332d26 0%,#262320 52%,#1c1916 100%)">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#c8ab86">Commissions open</div>
+    <h2 style="margin:26px 0 0;font-size:64px;font-weight:200;line-height:1.05;letter-spacing:-0.02em;color:#efe9df">A portrait of<br>your own.</h2>
+    <p style="margin:26px 0 0;max-width:540px;font-size:15px;font-weight:300;line-height:1.8;color:rgba(236,229,218,.62)">Send a few clear, well-lit photos of your pet, home, or car. I confirm the details and timeline, then begin once a 25% deposit secures your place.</p>
+    <div onClick="{{ openCommission }}" style="margin-top:38px;display:inline-flex;align-items:center;gap:12px;padding:17px 38px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">Begin a commission →</div>
+
+    <!-- ===== FOOTER ===== -->
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:30px 8vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(236,229,218,.07)">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;letter-spacing:.2em;color:#e9e2d7">ENOOGI.STUDIO<span style="width:5px;height:5px;border-radius:50%;background:rgba(200,171,134,.4)"></span></div>
+      <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.4)">Watercolour &amp; ink · Originals &amp; commissions</div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================== ACQUIRE PANEL ===================== -->
+<sc-if value="{{ acquireOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeAcquire }}" style="position:fixed;inset:0;z-index:60;background:rgba(18,16,14,.62);backdrop-filter:blur(3px);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+    <div onClick="{{ stop }}" style="position:absolute;top:0;right:0;height:100%;width:460px;max-width:92vw;background:#26221e;box-shadow:-40px 0 90px -20px rgba(0,0,0,.6);box-sizing:border-box;padding:42px 40px;overflow-y:auto">
+      <div onClick="{{ closeAcquire }}" style="position:absolute;top:24px;right:26px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:20px;color:rgba(236,229,218,.6);cursor:pointer">×</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">Acquire</div>
+      <div style="margin-top:22px;width:150px;box-shadow:0 18px 32px -12px rgba(0,0,0,.6)">{{ acqThumb }}</div>
+      <div style="margin-top:24px;font-size:34px;font-weight:300;letter-spacing:-0.01em;color:#ece5da">{{ acquirePiece.name }}</div>
+      <div style="margin-top:6px;font-size:14px;font-weight:300;color:rgba(236,229,218,.55)">{{ acquirePiece.year }} · {{ acquirePiece.dim }}</div>
+      <div style="margin-top:6px;font-size:13px;font-weight:300;color:rgba(236,229,218,.5)">{{ acquirePiece.medium }}</div>
+
+      <div style="margin:28px 0 12px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,229,218,.5)">Format</div>
+      <div style="display:flex;gap:12px">
+        <div onClick="{{ setOriginal }}" style="position:relative;flex:1;text-align:center;padding:16px 10px;border-radius:3px;border:1px solid rgba(236,229,218,.22);font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(236,229,218,.72);cursor:pointer">
+          <sc-if value="{{ isOriginal }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if>
+          <div style="position:relative">Original<div style="font-size:12px;font-weight:300;opacity:.6;margin-top:3px;letter-spacing:0;text-transform:none">{{ origSubLabel }}</div></div>
+          <sc-if value="{{ originalSoldOut }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:-1px;border-radius:3px;background:rgba(38,34,30,.58)"></div><div style="position:absolute;top:7px;right:8px;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#d98c7a">Sold out</div></sc-if>
+        </div>
+        <div onClick="{{ setPrint }}" style="position:relative;flex:1;text-align:center;padding:16px 10px;border-radius:3px;border:1px solid rgba(236,229,218,.22);font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(236,229,218,.72);cursor:pointer">
+          <sc-if value="{{ isPrint }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if>
+          <div style="position:relative">Print<div style="font-size:12px;font-weight:300;opacity:.6;margin-top:3px;letter-spacing:0;text-transform:none">Limited to 50</div></div>
+        </div>
+      </div>
+
+      <sc-if value="{{ isOriginal }}" hint-placeholder-val="{{ true }}">
+        <div style="margin:24px 0 12px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,229,218,.5)">Framing</div>
+        <div style="display:flex;gap:12px">
+          <div onClick="{{ setFramed }}" style="position:relative;flex:1;text-align:center;padding:16px 10px;border-radius:3px;border:1px solid rgba(236,229,218,.22);font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(236,229,218,.72);cursor:pointer">
+            <sc-if value="{{ isFramed }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if>
+            <div style="position:relative">Oak frame<div style="font-size:12px;font-weight:300;opacity:.6;margin-top:3px;letter-spacing:0;text-transform:none">{{ framedLabel }}</div></div>
+          </div>
+          <div onClick="{{ setUnframed }}" style="position:relative;flex:1;text-align:center;padding:16px 10px;border-radius:3px;border:1px solid rgba(236,229,218,.22);font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(236,229,218,.72);cursor:pointer">
+            <sc-if value="{{ isUnframed }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if>
+            <div style="position:relative">Unframed<div style="font-size:12px;font-weight:300;opacity:.6;margin-top:3px;letter-spacing:0;text-transform:none">{{ unframedLabel }}</div></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isPrint }}" hint-placeholder-val="{{ false }}">
+        <div style="margin:24px 0 12px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,229,218,.5)">Print options</div>
+        <div style="display:flex;gap:12px">
+          <div onClick="{{ setDigital }}" style="position:relative;flex:1;text-align:center;padding:16px 10px;border-radius:3px;border:1px solid rgba(236,229,218,.22);font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(236,229,218,.72);cursor:pointer">
+            <sc-if value="{{ isDigital }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if>
+            <div style="position:relative">Digital download<div style="font-size:12px;font-weight:300;opacity:.6;margin-top:3px;letter-spacing:0;text-transform:none">$5</div></div>
+          </div>
+          <div onClick="{{ setPrintFramed }}" style="position:relative;flex:1;text-align:center;padding:16px 10px;border-radius:3px;border:1px solid rgba(236,229,218,.22);font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(236,229,218,.72);cursor:pointer">
+            <sc-if value="{{ isPrintFramed }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if>
+            <div style="position:relative">Printed &amp; framed<div style="font-size:12px;font-weight:300;opacity:.6;margin-top:3px;letter-spacing:0;text-transform:none">$12</div></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="margin:30px 0 0;display:flex;align-items:baseline;justify-content:space-between">
+        <span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,229,218,.5)">Total</span>
+        <span style="font-size:30px;font-weight:300;color:#ece5da">{{ acqTotal }}</span>
+      </div>
+      <div onClick="{{ addToCollection }}" style="margin-top:24px;text-align:center;padding:17px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">{{ ctaLabel }}</div>
+      <sc-if value="{{ added }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:18px;padding:14px 16px;border:1px solid rgba(200,171,134,.35);font-size:13px;font-weight:300;line-height:1.6;color:rgba(236,229,218,.75)">{{ addedMsg }}</div>
+      </sc-if>
+      <p style="margin-top:22px;font-size:12px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.4)">{{ footerNote }}</p>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ===================== COMMISSION OVERLAY ===================== -->
+<sc-if value="{{ commission }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:70;background:radial-gradient(120% 100% at 50% 30%,#2c2823 0%,#221f1b 55%,#1a1714 100%);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-y:auto">
+    <div onClick="{{ closeCommission }}" style="position:fixed;top:24px;right:30px;z-index:2;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:22px;color:rgba(236,229,218,.6);cursor:pointer">×</div>
+    <div style="max-width:560px;margin:0 auto;padding:90px 28px 80px;box-sizing:border-box">
+
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#c8ab86">Commission a portrait</div>
+        <div style="margin-top:14px;display:flex;align-items:center;gap:14px">
+          <div style="font-size:13px;font-weight:300;color:rgba(236,229,218,.55)">Step {{ cstepLabel }} of 04</div>
+          <div style="flex:1;height:2px;background:rgba(236,229,218,.14);position:relative;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ progressPct }};background:#c8ab86;transition:width .4s ease"></div></div>
+        </div>
+
+        <!-- STEP 1 -->
+        <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-top:38px">
+            <h3 style="margin:0;font-size:30px;font-weight:300;color:#efe9df;letter-spacing:-0.01em">Let's start with you</h3>
+            <div style="margin-top:28px;display:flex;flex-direction:column;gap:20px">
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Your name</div><input placeholder="Full name" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Email</div><input placeholder="you@email.com" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"></div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- STEP 2 -->
+        <sc-if value="{{ step2 }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:38px">
+            <h3 style="margin:0;font-size:30px;font-weight:300;color:#efe9df;letter-spacing:-0.01em">Who am I painting?</h3>
+            <div style="margin-top:24px;display:flex;gap:10px">
+              <div style="flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer">Pet</div>
+              <div style="flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer">House</div>
+              <div style="flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer">Car</div>
+            </div>
+            <div style="margin-top:20px"><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Tell me about them</div><textarea rows="3" placeholder="Name, personality, anything you'd love captured…" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none;resize:vertical"></textarea></div>
+            <div style="margin-top:20px"><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Reference photos</div>
+              <div style="border:1.5px dashed rgba(236,229,218,.3);border-radius:6px;padding:32px 20px;text-align:center;cursor:pointer">
+                <div style="font-size:15px;font-weight:300;color:#ece5da">Drag photos here, or browse</div>
+                <div style="margin-top:8px;font-size:12px;font-weight:300;color:rgba(236,229,218,.45)">Natural light &amp; sharp focus give the best results</div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- STEP 3 -->
+        <sc-if value="{{ step3 }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:38px">
+            <h3 style="margin:0;font-size:30px;font-weight:300;color:#efe9df;letter-spacing:-0.01em">The piece</h3>
+            <div style="margin-top:28px;display:flex;flex-direction:column;gap:20px">
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Size</div><select style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><option style="color:#000">Small — 9" × 12"</option><option style="color:#000">Medium — 9" × 12"</option><option style="color:#000">Large — 9" × 12"</option></select></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Medium</div><select style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><option style="color:#000">Watercolour &amp; ink</option><option style="color:#000">Loose ink sketch</option></select></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Deadline (optional)</div><input placeholder="Any date you're working toward?" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"></div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- STEP 4 -->
+        <sc-if value="{{ step4 }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:38px">
+            <h3 style="margin:0;font-size:30px;font-weight:300;color:#efe9df;letter-spacing:-0.01em">Before you send</h3>
+            <div style="margin-top:24px;padding:22px 24px;border:1px solid rgba(200,171,134,.3);border-radius:5px;background:rgba(200,171,134,.06)">
+              <div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#c8ab86">How it works</div>
+              <p style="margin:14px 0 0;font-size:14px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.72)">Once I review your photos I'll confirm the details and timeline. A <strong style="font-weight:600;color:#ece5da">25% non-refundable deposit</strong> secures your commission; the balance is due once the finished piece is approved. I'll share previews before shipping — packaged and tracked. Turnaround is typically a few weeks.</p>
+            </div>
+            <label style="margin-top:20px;display:flex;align-items:flex-start;gap:11px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(236,229,218,.7);cursor:pointer"><input type="checkbox" style="margin-top:3px"><span>I understand the deposit and process, and consent to my commission being shared on the studio's portfolio unless I request privacy.</span></label>
+          </div>
+        </sc-if>
+
+        <!-- nav buttons -->
+        <div style="margin-top:40px;display:flex;align-items:center;justify-content:space-between">
+          <div onClick="{{ prev }}" style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,229,218,.5);cursor:pointer;visibility:{{ backVis }}">← Back</div>
+          <sc-if value="{{ showContinue }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ next }}" style="padding:15px 34px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">Continue →</div>
+          </sc-if>
+          <sc-if value="{{ showSubmit }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ submitFn }}" style="padding:15px 34px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">Send request →</div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- CONFIRMATION -->
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:60px 0">
+          <div style="width:64px;height:64px;margin:0 auto;border-radius:50%;border:1px solid #c8ab86;display:flex;align-items:center;justify-content:center;font-size:26px;color:#c8ab86">✓</div>
+          <h3 style="margin:30px 0 0;font-size:38px;font-weight:200;letter-spacing:-0.01em;color:#efe9df">Request received</h3>
+          <p style="margin:20px auto 0;max-width:400px;font-size:15px;font-weight:300;line-height:1.8;color:rgba(236,229,218,.62)">Thank you. I'll review your photos and reply within a few days to confirm the details, timeline, and deposit. Keep an eye on your inbox.</p>
+          <div onClick="{{ closeCommission }}" style="margin-top:38px;display:inline-flex;padding:15px 34px;border:1px solid rgba(236,229,218,.35);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#ece5da;cursor:pointer">Back to the gallery</div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { acquire:null, acqFraming:'framed', acqMode:'original', printOpt:'digital', added:false, commission:false, cstep:1, submitted:false, active:0 };
+
+  componentDidMount(){
+    const el = this.scrollEl; if(!el) return;
+    try{ const s = localStorage.getItem('enoogi_scroll'); if(s) el.scrollTop = parseFloat(s); }catch(e){}
+    this._onScroll = ()=>{ try{ localStorage.setItem('enoogi_scroll', String(el.scrollTop)); }catch(e){} };
+    el.addEventListener('scroll', this._onScroll, {passive:true});
+    const obs = new IntersectionObserver((ents)=>{
+      ents.forEach(en=>{
+        if(en.isIntersecting){
+          en.target.style.opacity = '1';
+          en.target.style.transform = 'none';
+          const i = en.target.getAttribute('data-index');
+          if(i!=null) this.setState({ active: parseInt(i,10) });
+        }
+      });
+    }, { root: el, threshold: 0.32 });
+    el.querySelectorAll('[data-reveal]').forEach(n=>obs.observe(n));
+    this._obs = obs;
+  }
+  componentWillUnmount(){
+    if(this._obs) this._obs.disconnect();
+    if(this.scrollEl && this._onScroll) this.scrollEl.removeEventListener('scroll', this._onScroll);
+  }
+
+  renderVals(){
+    const pieces = [
+      { name:'Biscuit', year:2025, img:'art/web_corgi.png', medium:'Watercolour & ink on cotton paper', dim:'9" × 12"', priceNum:195 },
+      { name:'Honey', year:2024, img:'art/web_maltese.png', medium:'Watercolour & ink on paper', dim:'9" × 12"', priceNum:195, soldOriginal:true },
+      { name:'Off the Clock', year:2026, img:'art/web_loomcats.png', medium:'Watercolour & ink on paper', dim:'12" × 9"', priceNum:195 },
+      { name:'Self-Service', year:2026, img:'art/web_vending.png', medium:'Watercolour & ink on paper', dim:'9" × 12"', priceNum:195 },
+    ];
+    const ai = this.state.acquire;
+    const ap = ai!=null ? pieces[ai] : null;
+    const originalSoldOut = ap ? !!ap.soldOriginal : false;
+    const framed = this.state.acqFraming === 'framed';
+    const mode = this.state.acqMode;       // 'original' | 'print'
+    const printOpt = this.state.printOpt;  // 'digital' | 'framed'
+    let totalNum = 0;
+    if (mode === 'print') totalNum = (printOpt === 'framed') ? 12 : 5;
+    else totalNum = ap ? (ap.priceNum - (framed ? 0 : 35)) : 0;
+    const total = ap ? ('$' + totalNum) : '';
+    const ctaLabel = mode === 'print'
+      ? (printOpt === 'framed' ? 'Order framed print →' : 'Buy & download →')
+      : 'Add to collection →';
+    const addedMsg = mode === 'print'
+      ? (printOpt === 'framed'
+          ? 'Ordered — a limited-edition print, professionally printed and framed in oak, shipped to your door.'
+          : 'Purchased — your high-resolution file is ready to download. Print it at home, anytime.')
+      : 'Added — an original, one of a kind. Each piece ships flat, packaged and tracked.';
+    const footerNote = mode === 'print'
+      ? 'Limited quantity — only 50 prints per piece. Digital files delivered instantly; framed prints ship in 5–7 days.'
+      : 'Originals are one of a kind. Carefully packaged and shipped with tracking.';
+
+    const cs = this.state.cstep;
+    return {
+      setScrollRef:(el)=>{ this.scrollEl = el; },
+      stop:(e)=>{ if(e&&e.stopPropagation) e.stopPropagation(); },
+
+      // acquire
+      acquireOpen: ai!=null,
+      acquirePiece: ap || { name:'', year:'', img:'', medium:'', dim:'' },
+      acqThumb: ap ? React.createElement('img', { src: ap.img, alt:'', style:{ display:'block', width:'100%', height:'auto' } }) : null,
+      acqTotal: total,
+      ctaLabel: ctaLabel,
+      addedMsg: addedMsg,
+      footerNote: footerNote,
+      framedLabel: 'Included',
+      unframedLabel: '−$35',
+      originalSoldOut: originalSoldOut,
+      origSubLabel: originalSoldOut ? 'Sold out' : 'One of a kind',
+      added: this.state.added,
+      openA0:()=>this.setState({acquire:0,acqFraming:'framed',acqMode:'original',printOpt:'digital',added:false}),
+      openA1:()=>this.setState({acquire:1,acqFraming:'framed',acqMode:'print',printOpt:'digital',added:false}),
+      openA3:()=>this.setState({acquire:2,acqFraming:'framed',acqMode:'original',printOpt:'digital',added:false}),
+      openA4:()=>this.setState({acquire:3,acqFraming:'framed',acqMode:'original',printOpt:'digital',added:false}),
+      closeAcquire:()=>this.setState({acquire:null,added:false}),
+      addToCollection:()=>this.setState({added:true}),
+      isUnframed: !framed,
+      isFramed: framed,
+      setUnframed:()=>this.setState({acqFraming:'unframed'}),
+      setFramed:()=>this.setState({acqFraming:'framed'}),
+      isOriginal: mode === 'original',
+      isPrint: mode === 'print',
+      setOriginal:()=>{ if(originalSoldOut) return; this.setState({acqMode:'original',added:false}); },
+      setPrint:()=>this.setState({acqMode:'print',added:false}),
+      isDigital: printOpt === 'digital',
+      isPrintFramed: printOpt === 'framed',
+      setDigital:()=>this.setState({printOpt:'digital',added:false}),
+      setPrintFramed:()=>this.setState({printOpt:'framed',added:false}),
+
+      // commission
+      commission: this.state.commission,
+      openCommission:()=>this.setState({commission:true,cstep:1,submitted:false}),
+      closeCommission:()=>this.setState({commission:false}),
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      cstepLabel: '0'+cs,
+      progressPct: (cs/4*100)+'%',
+      step1: cs===1, step2: cs===2, step3: cs===3, step4: cs===4,
+      showContinue: cs<4, showSubmit: cs===4,
+      backVis: cs>1 ? 'visible' : 'hidden',
+      next:()=>this.setState(s=>({cstep:Math.min(4,s.cstep+1)})),
+      prev:()=>this.setState(s=>({cstep:Math.max(1,s.cstep-1)})),
+      submitFn:()=>this.setState({submitted:true}),
+    };
+  }
+}
+</script>
+</body>
+</html>

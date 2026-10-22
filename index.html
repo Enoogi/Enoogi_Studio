@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enoogi.Studio — Watercolour pet portraits</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#15120f"/>
+  <rect x="30" y="24" width="40" height="52" rx="2" fill="none" stroke="#c8ab86" stroke-width="1.5"/>
+  <circle cx="50" cy="46" r="11" fill="#c8ab86" opacity="0.85"/>
+  <text x="50" y="90" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#e9e2d7" text-anchor="middle">ENOOGI</text>
+</svg>
+</template>
+<x-dc>
+<helmet>
+<style>
+  html,body{margin:0;background:#15120f}
+  *{-webkit-font-smoothing:antialiased;box-sizing:border-box}
+  @keyframes cuePulse{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:.7;transform:translateY(7px)}}
+  @keyframes lightBreath{0%,100%{opacity:.85}50%{opacity:1}}
+</style>
+</helmet>
+
+<div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+
+  <!-- ===== NAV ===== -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;pointer-events:none">
+    <a href="index.html" style="font-size:15px;font-weight:600;letter-spacing:.2em;color:#e9e2d7;text-decoration:none;pointer-events:auto;transition:color .25s ease" style-hover="color:#f3ede2">ENOOGI.STUDIO</a>
+    <div style="display:flex;gap:36px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:auto">
+      <span style="color:#e9e2d7">Home</span>
+      <a href="gallery.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Gallery</a>
+      <a href="gallery.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Commissions</a>
+      <a href="about.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">About</a>
+    </div>
+  </div>
+
+  <!-- ===== HERO — THE LOBBY ===== -->
+  <section style="position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:150px 6vw 90px;background:linear-gradient(180deg,#37322b 0%,#302a21 46%,#28221b 70%,#1e1813 100%)">
+    <!-- ceiling spotlight cone -->
+    <div style="position:absolute;top:-8%;left:50%;transform:translateX(-50%);width:820px;max-width:120vw;height:980px;background:radial-gradient(46% 52% at 50% 26%,rgba(255,239,212,.17),rgba(255,239,212,.05) 46%,transparent 70%);pointer-events:none;filter:blur(6px);animation:lightBreath 9s ease-in-out infinite"></div>
+    <!-- floor light pool -->
+    <div style="position:absolute;top:64%;left:50%;transform:translateX(-50%);width:720px;max-width:108vw;height:260px;background:radial-gradient(50% 50% at 50% 28%,rgba(255,236,203,.13),transparent 70%);pointer-events:none;filter:blur(12px)"></div>
+
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#c8ab86">Welcome to Enoogi.Studio</div>
+
+      <!-- the single lit masterpiece -->
+      <div style="position:relative;margin-top:36px">
+        <img src="art/web_maltese.png" alt="Featured watercolour portrait" style="display:block;width:300px;max-width:62vw;height:auto;box-shadow:0 70px 95px -30px rgba(0,0,0,.9)">
+      </div>
+
+      <h1 style="margin:52px 0 0;font-size:62px;font-weight:200;line-height:1.04;letter-spacing:-0.02em;color:#efe9df">Come in, and wander.</h1>
+      <p style="margin:24px 0 0;max-width:480px;font-size:16px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.64)">A warm little gallery of watercolour portraits — take your time and wander through, one room and one light at a time.</p>
+      <a href="gallery.html" style="margin-top:38px;display:inline-flex;align-items:center;gap:12px;padding:18px 40px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#221d18;text-decoration:none">Enter the gallery →</a>
+    </div>
+  </section>
+
+  <!-- ===== SELECTED WORKS — SCROLL-PINNED, SIDEWAYS SNAP ===== -->
+  <section ref="{{ setSection }}" style="position:relative;height:300vh;background:radial-gradient(120% 75% at 50% 26%,#2a2620 0%,#221e1a 56%,#17130f 100%)">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:70px 6vw 40px">
+      <div style="text-align:center">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#c8ab86">Selected works</div>
+        <h2 style="margin:16px 0 0;font-size:44px;font-weight:200;letter-spacing:-0.015em;color:#efe9df">Currently on view</h2>
+      </div>
+
+      <div style="position:relative;width:100%;max-width:1120px;margin:4vh auto 0">
+        <div ref="{{ setCarousel }}" style="position:relative;height:min(480px,48vh)">
+        <div data-slide onClick="{{ select0 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(0%) scale(1);opacity:1;filter:brightness(1);z-index:5;cursor:pointer">
+          <img src="art/web_corgi.png" alt="Biscuit" style="display:block;width:100%;height:auto;box-shadow:0 55px 85px -30px rgba(0,0,0,.85)">
+        </div>
+        <div data-slide onClick="{{ select1 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(112%) scale(0.74);opacity:0.5;filter:brightness(0.62);z-index:3;cursor:pointer">
+          <img src="art/web_vending.png" alt="Self-Service" style="display:block;width:100%;height:auto;box-shadow:0 55px 85px -30px rgba(0,0,0,.85)">
+        </div>
+        <div data-slide onClick="{{ select2 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(224%) scale(0.74);opacity:0;filter:brightness(0.62);z-index:1;cursor:pointer">
+          <img src="art/web_loomcats.png" alt="Off the Clock" style="display:block;width:100%;height:auto;box-shadow:0 55px 85px -30px rgba(0,0,0,.85)">
+        </div>
+        </div>
+        <div onClick="{{ prev }}" style="position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;width:54px;height:54px;border-radius:50%;border:1px solid rgba(236,229,218,.3);display:flex;align-items:center;justify-content:center;color:#ece5da;font-size:20px;cursor:pointer;background:rgba(23,19,15,.4)">‹</div>
+        <div onClick="{{ next }}" style="position:absolute;top:50%;right:0;transform:translateY(-50%);z-index:10;width:54px;height:54px;border-radius:50%;border:1px solid rgba(236,229,218,.3);display:flex;align-items:center;justify-content:center;color:#ece5da;font-size:20px;cursor:pointer;background:rgba(23,19,15,.4)">›</div>
+      </div>
+
+      <div style="text-align:center;margin-top:3vh;min-height:74px">
+        <div style="font-size:27px;font-weight:300;letter-spacing:-0.01em;color:#ece5da">{{ activeName }} <span style="color:rgba(236,229,218,.45)">· {{ activeYear }}</span></div>
+        <div style="margin-top:9px;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,229,218,.5)">{{ activeMeta }} · {{ activePrice }}</div>
+      </div>
+
+      <div ref="{{ setDots }}" style="display:flex;gap:10px;justify-content:center;margin-top:22px">
+        <div onClick="{{ select0 }}" data-dot style="width:22px;height:7px;border-radius:4px;background:#c8ab86;cursor:pointer;transition:all .3s ease"></div>
+        <div onClick="{{ select1 }}" data-dot style="width:7px;height:7px;border-radius:4px;background:rgba(236,229,218,.3);cursor:pointer;transition:all .3s ease"></div>
+        <div onClick="{{ select2 }}" data-dot style="width:7px;height:7px;border-radius:4px;background:rgba(236,229,218,.3);cursor:pointer;transition:all .3s ease"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATEMENT — ANTICIPATION ===== -->
+  <section style="padding:130px 8vw 140px;background:#15120f;text-align:center">
+    <div style="width:42px;height:1px;background:#c8ab86;margin:0 auto 40px"></div>
+    <p style="max-width:720px;margin:0 auto;font-size:30px;font-weight:200;line-height:1.5;letter-spacing:-0.01em;color:#e7e0d4">Inside, there are no crowds and no clutter. Each painting waits in a room of its own — lit, and alone — the way something you love deserves to be seen.</p>
+    <a href="gallery.html" style="margin-top:46px;display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86;text-decoration:none">Begin the walkthrough →</a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <div style="padding:42px 8vw;display:flex;align-items:center;justify-content:space-between;background:#120f0c;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(236,229,218,.07)">
+    <div style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;letter-spacing:.2em;color:#e9e2d7">ENOOGI.STUDIO<span style="width:5px;height:5px;border-radius:50%;background:rgba(200,171,134,.4)"></span></div>
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.4)">Watercolour &amp; ink · Originals &amp; commissions</div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx: 0 };
+  N = 3;
+
+  componentDidMount(){
+    this.onScroll = () => {
+      if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = null; this.sync(); });
+      clearTimeout(this.settleT);
+      this.settleT = setTimeout(() => this.snap(), 140);
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.anchor = window.scrollY;
+    this.sync(); this.apply();
+  }
+  componentDidUpdate(){ this.apply(); }
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+    clearTimeout(this.settleT); clearTimeout(this.guardT);
+  }
+
+  range(){
+    const s = this.section; if (!s) return null;
+    const top = s.getBoundingClientRect().top + window.scrollY;
+    return { top, total: Math.max(1, s.offsetHeight - window.innerHeight) };
+  }
+  sync(){
+    const r = this.range(); if (!r) return;
+    const p = Math.min(1, Math.max(0, (window.scrollY - r.top) / r.total));
+    const idx = Math.min(this.N - 1, Math.round(p * (this.N - 1)));
+    if (idx !== this.state.idx) this.setState({ idx });
+  }
+  // Snap points: section entry, each painting, then the next section's top on exit.
+  snapPoints(r){
+    const pts = [Math.max(0, r.top - window.innerHeight)];
+    for (let i = 0; i < this.N; i++) pts.push(r.top + r.total * i / (this.N - 1));
+    pts.push(r.top + r.total + window.innerHeight);
+    return pts;
+  }
+  glide(target){
+    this.anchor = target;
+    if (Math.abs(target - window.scrollY) < 2) return;
+    this.snapTarget = target;
+    clearTimeout(this.guardT);
+    this.guardT = setTimeout(() => { this.snapTarget = null; }, 900);
+    window.scrollTo({ top: target, behavior: 'smooth' });
+  }
+  snap(){
+    const y = window.scrollY;
+    if (this.snapTarget != null && Math.abs(y - this.snapTarget) < 3) { this.snapTarget = null; return; }
+    const r = this.range(); if (!r) return;
+    const pts = this.snapPoints(r);
+    const from = this.anchor ?? y;
+    if (y < pts[0] - 1 || y > pts[pts.length - 1] + 1) { this.anchor = y; return; }
+    // Directional: a deliberate scroll (>30px) carries to the next point in that direction.
+    const d = y - from;
+    let target;
+    if (d > 30) target = pts.find(p => p >= y - 1);
+    else if (d < -30) target = [...pts].reverse().find(p => p <= y + 1);
+    if (target == null) target = pts.reduce((a, b) => Math.abs(b - y) < Math.abs(a - y) ? b : a);
+    this.glide(target);
+  }
+  scrollTo(i){
+    const r = this.range(); if (!r) return;
+    this.glide(r.top + r.total * i / (this.N - 1));
+  }
+
+  apply(){
+    const el = this.carousel; if (!el) return;
+    const idx = this.state.idx;
+    [...el.querySelectorAll('[data-slide]')].forEach((s, i) => {
+      const o = i - idx, abs = Math.abs(o);
+      let sc, op, z, br, pe;
+      if (abs === 0){ sc=1; op=1; z=5; br=1; pe='auto'; }
+      else if (abs === 1){ sc=.74; op=.5; z=3; br=.62; pe='auto'; }
+      else { sc=.6; op=0; z=1; br=.5; pe='none'; }
+      s.style.transform = `translate(-50%,-50%) translateX(${o*112}%) scale(${sc})`;
+      s.style.opacity = op; s.style.zIndex = z;
+      s.style.filter = `brightness(${br})`; s.style.pointerEvents = pe;
+    });
+    if (this.dots){
+      [...this.dots.children].forEach((d, i) => {
+        const on = i === idx;
+        d.style.background = on ? '#c8ab86' : 'rgba(236,229,218,.3)';
+        d.style.width = on ? '22px' : '7px';
+      });
+    }
+  }
+
+  renderVals(){
+    const pieces = [
+      { name:'Biscuit', year:2025, medium:'Watercolour & ink', dim:'9" × 12"', price:'$195' },
+      { name:'Self-Service', year:2026, medium:'Watercolour & ink', dim:'9" × 12"', price:'$195' },
+      { name:'Off the Clock', year:2026, medium:'Watercolour & ink', dim:'12" × 9"', price:'$195' },
+    ];
+    const idx = this.state.idx, a = pieces[idx] || pieces[0];
+    return {
+      setSection: (el) => { this.section = el; },
+      setCarousel: (el) => { this.carousel = el; },
+      setDots: (el) => { this.dots = el; },
+      select0: () => this.scrollTo(0),
+      select1: () => this.scrollTo(1),
+      select2: () => this.scrollTo(2),
+      next: () => this.scrollTo(Math.min(this.N - 1, idx + 1)),
+      prev: () => this.scrollTo(Math.max(0, idx - 1)),
+      activeName: a.name,
+      activeYear: String(a.year),
+      activeMeta: a.medium + ' · ' + a.dim,
+      activePrice: a.price,
+    };
+  }
+}
+</script>
+</body>
+</html>
