@@ -23,15 +23,38 @@
   ::-webkit-scrollbar{width:0;height:0}
   @keyframes cuePulse{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:.75;transform:translateY(7px)}}
   input::placeholder,textarea::placeholder{color:rgba(236,229,218,.32)}
+
+  /* Breakpoints: mobile <640 · sm 640–767 · tablet 768–1023 · desktop 1024–1279 · xl 1280–1535 · 2xl ≥1536 */
+  @media (min-width:1536px){[data-r~="h1"]{font-size:100px!important}[data-r~="lead"]{max-width:600px!important;font-size:18px!important}[data-r~="roomrow"]{max-width:1380px!important}[data-r~="roomimg"]{width:600px!important;max-width:46vw!important}[data-r~="roomimgp"]{width:470px!important}[data-r~="label"]{max-width:360px!important}[data-r~="ptitle"]{font-size:54px!important}[data-r~="h2"]{font-size:76px!important}}
+  @media (max-width:1279px){[data-r~="roomimg"]{width:440px!important}[data-r~="roomimgp"]{width:350px!important}}
+  @media (max-width:1023px){[data-r~="nav"]{padding:22px 32px!important}[data-r~="h1"]{font-size:64px!important}[data-r~="h2"]{font-size:52px!important}[data-r~="room"]{padding:90px 6vw!important}[data-r~="roomrow"]{gap:4vw!important}[data-r~="scroller"]{scroll-snap-type:y proximity!important}[data-r~="roomrow"]{flex-wrap:nowrap!important}[data-r~="roomimg"]{flex:0 1 auto!important;min-width:0!important;max-width:46vw!important}[data-r~="roomimgp"]{max-width:36vw!important}[data-r~="label"]{flex:0 1 300px!important;min-width:200px!important}[data-r~="ptitle"]{font-size:38px!important}}
+  @media (max-width:767px){[data-r~="navlinks"]{display:none!important}[data-r~="burger"]{display:flex!important}[data-r~="scroller"]{scroll-snap-type:y proximity!important}[data-r~="room"]{min-height:auto!important;padding:110px 28px 84px!important}[data-r~="roomrow"]{flex-direction:column!important;gap:36px!important}[data-r~="roomimg"]{width:100%!important;max-width:460px!important}[data-r~="roomimgp"]{max-width:340px!important}[data-r~="label"]{flex:none!important;max-width:460px!important;width:100%!important;min-width:0!important}[data-r~="roomimg"]{max-width:460px!important}[data-r~="h1"]{font-size:52px!important}[data-r~="h2"]{font-size:44px!important}}
+  @media (max-width:639px){[data-r~="nav"]{padding:14px 20px!important}[data-r~="foot"]{flex-direction:column!important;align-items:flex-start!important;padding:30px 22px!important}[data-r~="cover"]{padding:0 22px!important}[data-r~="h1"]{font-size:40px!important}[data-r~="lead"]{font-size:15px!important}[data-r~="room"]{padding:92px 22px 64px!important}[data-r~="ptitle"]{font-size:34px!important}[data-r~="cta"]{padding:0 22px 150px!important}[data-r~="h2"]{font-size:38px!important}[data-r~="panel"]{width:100%!important;max-width:100%!important;padding:36px 22px 40px!important}[data-r~="cform"]{padding:76px 22px 64px!important}}
 </style>
 </helmet>
 <div aria-hidden="true" style="display:none"><img data-art="art/web_corgi.png" src="art/web_corgi.png" alt=""><img data-art="art/web_fox.png" src="art/web_fox.png" alt=""><img data-art="art/web_pup.png" src="art/web_pup.png" alt=""><img data-art="art/web_loomcats.png" src="art/web_loomcats.png" alt=""><img data-art="art/web_vending.png" src="art/web_vending.png" alt=""></div>
 
 
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90;background:radial-gradient(120% 80% at 50% 20%,#2a2620 0%,#17130f 100%);display:flex;flex-direction:column;padding:14px 20px 36px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+    <div style="display:flex;align-items:center;justify-content:space-between;min-height:44px">
+      <div style="font-size:15px;font-weight:600;letter-spacing:.2em;color:#e9e2d7">ENOOGI.STUDIO</div>
+      <div onClick="{{ toggleMenu }}" aria-label="Close menu" style="width:44px;height:44px;margin-right:-10px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:200;color:#e9e2d7;cursor:pointer">×</div>
+    </div>
+    <div style="margin-top:12vh;display:flex;flex-direction:column;gap:6px">
+      <a href="index.html" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#efe9df">Home</a>
+      <div onClick="{{ toggleMenu }}" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#c8ab86">Gallery</div>
+      <div onClick="{{ menuCommission }}" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#efe9df">Commissions</div>
+      <a href="about.html" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#efe9df">About</a>
+    </div>
+    <div style="margin-top:auto;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.4)">Watercolour &amp; ink · Originals &amp; commissions</div>
+  </div>
+</sc-if>
 <!-- ===================== FIXED NAV ===================== -->
-<div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;pointer-events:none">
+<div data-r="nav" style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;pointer-events:none">
   <a href="index.html" style="font-size:15px;font-weight:600;letter-spacing:.2em;color:#e9e2d7;text-decoration:none;pointer-events:auto;transition:color .25s ease" style-hover="color:#f3ede2">ENOOGI.STUDIO</a>
-  <div style="display:flex;gap:36px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:auto">
+  <div data-r="burger" onClick="{{ toggleMenu }}" aria-label="Open menu" style="display:none;pointer-events:auto;width:44px;height:44px;margin-right:-10px;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer"><span style="display:block;width:22px;height:1px;background:#e9e2d7"></span><span style="display:block;width:22px;height:1px;background:#e9e2d7"></span></div>
+    <div data-r="navlinks" style="display:flex;gap:36px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:auto">
     <a href="index.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Home</a>
     <span style="color:#e9e2d7">Gallery</span>
     <span onClick="{{ openCommission }}" style="color:rgba(233,226,215,.6);cursor:pointer;transition:color .25s ease" style-hover="color:#e9e2d7">Commissions</span>
@@ -40,13 +63,13 @@
 </div>
 
 <!-- ===================== SCROLL CONTAINER ===================== -->
-<div ref="{{ setScrollRef }}" style="height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+<div data-r="scroller" ref="{{ setScrollRef }}" style="height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
 
   <!-- ===== COVER ===== -->
-  <section data-screen-label="Cover" style="min-height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 8vw;background:radial-gradient(120% 92% at 50% 42%,#3a332c 0%,#2a2622 48%,#201d1a 100%)">
+  <section data-r="cover" data-screen-label="Cover" style="min-height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 8vw;background:radial-gradient(120% 92% at 50% 42%,#3a332c 0%,#2a2622 48%,#201d1a 100%)">
     <div style="font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:rgba(233,226,215,.6)">Watercolour pet portraits &amp; commissions</div>
-    <h1 style="margin:30px 0 0;font-size:84px;font-weight:200;line-height:1.04;letter-spacing:-0.02em;color:#efe9df">Every portrait,<br>its own light.</h1>
-    <p style="margin:30px 0 0;max-width:520px;font-size:16px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.62)">A quiet gallery shown the way a museum shows a masterpiece — one painting to a room, unhurried, with space to breathe.</p>
+    <h1 data-r="h1" style="margin:30px 0 0;font-size:84px;font-weight:200;line-height:1.04;letter-spacing:-0.02em;color:#efe9df">Every portrait,<br>its own light.</h1>
+    <p data-r="lead" style="margin:30px 0 0;max-width:520px;font-size:16px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.62)">A quiet gallery shown the way a museum shows a masterpiece — one painting to a room, unhurried, with space to breathe.</p>
     <div style="position:absolute;bottom:40px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:12px">
       <div style="font-size:10px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:rgba(233,226,215,.5)">Enter the gallery</div>
       <svg width="22" height="26" viewBox="0 0 22 26" fill="none" style="animation:cuePulse 2.4s ease-in-out infinite"><path d="M11 1v22M3 15l8 8 8-8" stroke="rgba(233,226,215,.6)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -54,14 +77,14 @@
   </section>
 
   <!-- ===== ROOM 01 — corgi, painting left ===== -->
-  <section data-screen-label="Room 01" data-reveal="1" data-index="0" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
-    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+  <section data-screen-label="Room 01" data-r="room" data-reveal="1" data-index="0" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div data-r="roomrow" style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
       <!-- FRAMED PIECE -->
-      <img src="art/web_corgi.png" alt="Biscuit, watercolour corgi" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <img src="art/web_corgi.png" alt="Biscuit, watercolour corgi" data-r="roomimg" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
       <!-- LABEL -->
-      <div style="max-width:300px;min-width:240px">
+      <div data-r="label" style="max-width:300px;min-width:240px">
         <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">01 / 05</div>
-        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Biscuit</div>
+        <div data-r="ptitle" style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Biscuit</div>
         <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2025</div>
         <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A corgi caught mid-thought, in washes of apricot and ink.</p>
         <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
@@ -73,12 +96,12 @@
   </section>
 
   <!-- ===== ROOM 02 — fennec fox, landscape ===== -->
-  <section data-screen-label="Room 02" data-reveal="1" data-index="1" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
-    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
-      <img src="art/web_fox.png" alt="Siesta, watercolour fennec fox asleep on a ledge" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
-      <div style="max-width:300px;min-width:240px">
+  <section data-screen-label="Room 02" data-r="room" data-reveal="1" data-index="1" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div data-r="roomrow" style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <img src="art/web_fox.png" alt="Siesta, watercolour fennec fox asleep on a ledge" data-r="roomimg" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <div data-r="label" style="max-width:300px;min-width:240px">
         <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">02 / 05</div>
-        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Siesta</div>
+        <div data-r="ptitle" style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Siesta</div>
         <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2026</div>
         <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A fennec fox curled tight on a sun-warmed ledge, ears still half-listening — honey, ochre and violet shadow pooled around a perfect afternoon nap.</p>
         <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
@@ -90,12 +113,12 @@
   </section>
 
   <!-- ===== ROOM 03 — corgi puppy, landscape ===== -->
-  <section data-screen-label="Room 03" data-reveal="1" data-index="2" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
-    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
-      <img src="art/web_pup.png" alt="Good Question, watercolour corgi puppy looking up" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
-      <div style="max-width:300px;min-width:240px">
+  <section data-screen-label="Room 03" data-r="room" data-reveal="1" data-index="2" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div data-r="roomrow" style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <img src="art/web_pup.png" alt="Good Question, watercolour corgi puppy looking up" data-r="roomimg" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <div data-r="label" style="max-width:300px;min-width:240px">
         <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">03 / 05</div>
-        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Good Question</div>
+        <div data-r="ptitle" style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Good Question</div>
         <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2026</div>
         <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A corgi pup gazing up with round, hopeful eyes — the exact look that means a treat is overdue. Soft fawn washes, left loose on bare white paper.</p>
         <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
@@ -107,12 +130,12 @@
   </section>
 
   <!-- ===== ROOM 04 — loom cats, landscape ===== -->
-  <section data-screen-label="Room 04" data-reveal="1" data-index="3" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
-    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
-      <img src="art/web_loomcats.png" alt="Off the Clock, watercolour cats on a loom" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
-      <div style="max-width:300px;min-width:240px">
+  <section data-screen-label="Room 04" data-r="room" data-reveal="1" data-index="3" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div data-r="roomrow" style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <img src="art/web_loomcats.png" alt="Off the Clock, watercolour cats on a loom" data-r="roomimg" style="display:block;width:480px;max-width:44vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <div data-r="label" style="max-width:300px;min-width:240px">
         <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">04 / 05</div>
-        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Off the Clock</div>
+        <div data-r="ptitle" style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Off the Clock</div>
         <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2026</div>
         <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A giant cat dozes atop a bus station while an enormous ball of fur looms behind — from the Giant Animal series, slipping fantasy scale into ordinary scenes.</p>
         <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
@@ -124,12 +147,12 @@
   </section>
 
   <!-- ===== ROOM 05 — vending cat, portrait ===== -->
-  <section data-screen-label="Room 05" data-reveal="1" data-index="4" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
-    <div style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
-      <img src="art/web_vending.png" alt="Self-Service, watercolour cat beside a vending machine" style="display:block;width:380px;max-width:40vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
-      <div style="max-width:300px;min-width:240px">
+  <section data-screen-label="Room 05" data-r="room" data-reveal="1" data-index="4" style="opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.7,.2,1);min-height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 8vw;background:radial-gradient(110% 92% at 63% 47%,#3b342d 0%,#2a2622 52%,#201d1a 100%)">
+    <div data-r="roomrow" style="display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:5vw;max-width:1180px;width:100%;flex-wrap:wrap">
+      <img src="art/web_vending.png" alt="Self-Service, watercolour cat beside a vending machine" data-r="roomimg roomimgp" style="display:block;width:380px;max-width:40vw;height:auto;box-shadow:0 78px 120px -34px rgba(0,0,0,.82),0 28px 55px -30px rgba(0,0,0,.55)">
+      <div data-r="label" style="max-width:300px;min-width:240px">
         <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">05 / 05</div>
-        <div style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Self-Service</div>
+        <div data-r="ptitle" style="margin-top:18px;font-size:46px;font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:#ece5da">Self-Service</div>
         <div style="margin-top:8px;font-size:15px;font-weight:300;color:rgba(236,229,218,.55)">2026</div>
         <p style="margin:20px 0 0;font-size:14px;font-weight:300;line-height:1.7;color:rgba(236,229,218,.6)">A giant cat looms behind a Coke vending machine, resting a paw on top as if the whole thing were a toy — another from the Giant Animal series.</p>
         <div style="margin:24px 0;height:1px;background:rgba(236,229,218,.16)"></div>
@@ -141,14 +164,14 @@
   </section>
 
   <!-- ===== COMMISSION CTA ===== -->
-  <section data-screen-label="Commission CTA" style="min-height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 8vw;background:radial-gradient(120% 92% at 50% 50%,#332d26 0%,#262320 52%,#1c1916 100%)">
+  <section data-r="cta" data-screen-label="Commission CTA" style="min-height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 8vw;background:radial-gradient(120% 92% at 50% 50%,#332d26 0%,#262320 52%,#1c1916 100%)">
     <div style="font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#c8ab86">Commissions open</div>
-    <h2 style="margin:26px 0 0;font-size:64px;font-weight:200;line-height:1.05;letter-spacing:-0.02em;color:#efe9df">A portrait of<br>your own.</h2>
+    <h2 data-r="h2" style="margin:26px 0 0;font-size:64px;font-weight:200;line-height:1.05;letter-spacing:-0.02em;color:#efe9df">A portrait of<br>your own.</h2>
     <p style="margin:26px 0 0;max-width:540px;font-size:15px;font-weight:300;line-height:1.8;color:rgba(236,229,218,.62)">Send a few clear, well-lit photos of your pet, home, or car. I confirm the details and timeline, then begin once a 25% deposit secures your place.</p>
     <div onClick="{{ openCommission }}" style="margin-top:38px;display:inline-flex;align-items:center;gap:12px;padding:17px 38px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">Begin a commission →</div>
 
     <!-- ===== FOOTER ===== -->
-    <div style="position:absolute;left:0;right:0;bottom:0;padding:30px 8vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(236,229,218,.07)">
+    <div data-r="foot" style="position:absolute;left:0;right:0;bottom:0;padding:30px 8vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(236,229,218,.07)">
       <div style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;letter-spacing:.2em;color:#e9e2d7">ENOOGI.STUDIO<span style="width:5px;height:5px;border-radius:50%;background:rgba(200,171,134,.4)"></span></div>
       <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.4)">Watercolour &amp; ink · Originals &amp; commissions</div>
     </div>
@@ -159,7 +182,7 @@
 <!-- ===================== ACQUIRE PANEL ===================== -->
 <sc-if value="{{ acquireOpen }}" hint-placeholder-val="{{ false }}">
   <div onClick="{{ closeAcquire }}" style="position:fixed;inset:0;z-index:60;background:rgba(18,16,14,.62);backdrop-filter:blur(3px);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
-    <div onClick="{{ stop }}" style="position:absolute;top:0;right:0;height:100%;width:460px;max-width:92vw;background:#26221e;box-shadow:-40px 0 90px -20px rgba(0,0,0,.6);box-sizing:border-box;padding:42px 40px;overflow-y:auto">
+    <div data-r="panel" onClick="{{ stop }}" style="position:absolute;top:0;right:0;height:100%;width:460px;max-width:92vw;background:#26221e;box-shadow:-40px 0 90px -20px rgba(0,0,0,.6);box-sizing:border-box;padding:42px 40px;overflow-y:auto">
       <div onClick="{{ closeAcquire }}" style="position:absolute;top:24px;right:26px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:20px;color:rgba(236,229,218,.6);cursor:pointer">×</div>
       <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86">Acquire</div>
       <div style="margin-top:22px;width:150px;box-shadow:0 18px 32px -12px rgba(0,0,0,.6)">{{ acqThumb }}</div>
@@ -272,7 +295,7 @@
 <sc-if value="{{ commission }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed;inset:0;z-index:70;background:radial-gradient(120% 100% at 50% 30%,#2c2823 0%,#221f1b 55%,#1a1714 100%);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-y:auto">
     <div onClick="{{ closeCommission }}" style="position:fixed;top:24px;right:30px;z-index:2;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:22px;color:rgba(236,229,218,.6);cursor:pointer">×</div>
-    <div style="max-width:560px;margin:0 auto;padding:90px 28px 80px;box-sizing:border-box">
+    <div data-r="cform" style="max-width:560px;margin:0 auto;padding:90px 28px 80px;box-sizing:border-box">
 
       <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
         <div style="font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#c8ab86">Commission a portrait</div>
@@ -363,7 +386,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"paypalClientId":{"editor":"text","default":"ASIb3GLagYiyzfgIywMqW8qM_yodacxSpqY0vcVB1hVdYMy2-6q09t7TimQSS5gJp6Cnh-yVqqedR_du","tsType":"string","section":"Payments"},"ppDigital":{"editor":"text","default":"","tsType":"string","section":"Payments"},"ppPrint":{"editor":"text","default":"","tsType":"string","section":"Payments"},"paypalMe":{"editor":"text","default":"","tsType":"string","section":"Payments"}}'>
 class Component extends DCLogic {
-  state = { payMethod:'paypal', paid:false, orderRef:'', acquire:null, acqFraming:'framed', acqMode:'original', printOpt:'digital', added:false, commission:false, cstep:1, submitted:false, active:0 };
+  state = { menuOpen:false, payMethod:'paypal', paid:false, orderRef:'', acquire:null, acqFraming:'framed', acqMode:'original', printOpt:'digital', added:false, commission:false, cstep:1, submitted:false, active:0 };
 
   componentDidMount(){
     const el = this.scrollEl; if(!el) return;
@@ -499,6 +522,9 @@ class Component extends DCLogic {
       openA4:()=>this.setState({acquire:4,acqFraming:'framed',acqMode:'original',printOpt:'digital',added:false,paid:false}),
       closeAcquire:()=>this.setState({acquire:null,added:false,paid:false}),
       addToCollection:()=>{ if(this.state.added) return; const p=pieces[ai]; const code='EN-'+(p?p.name.replace(/[^A-Za-z]/g,'').slice(0,3).toUpperCase():'ORD')+'-'+String(Date.now()).slice(-4); this.setState({added:true,paid:false,orderRef:code}); },
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      menuCommission: () => this.setState({ menuOpen:false, commission:true, cstep:1, submitted:false }),
       showPay: this.state.added && !this.state.paid,
       paid: this.state.paid,
       orderRef: this.state.orderRef,

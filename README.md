@@ -7,6 +7,9 @@ Watercolour pet portraits — originals, prints and commissions.
 - `gallery.html` — Gallery walkthrough, acquire + commission flow
 - `about.html` — About the artist
 
+## Responsive
+Mobile <640 · sm 640–767 · tablet 768–1023 · desktop 1024–1279 · xl 1280–1535 · 2xl ≥1536. Breakpoint rules live in each page's `<style>` block (look for `data-r`).
+
 ## Run locally
 Serve the folder with any static server (pages won't load from `file://`):
 

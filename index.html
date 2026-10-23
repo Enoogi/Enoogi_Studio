@@ -22,15 +22,38 @@
   *{-webkit-font-smoothing:antialiased;box-sizing:border-box}
   @keyframes cuePulse{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:.7;transform:translateY(7px)}}
   @keyframes lightBreath{0%,100%{opacity:.85}50%{opacity:1}}
+
+  /* Breakpoints: mobile <640 · sm 640–767 · tablet 768–1023 · desktop 1024–1279 · xl 1280–1535 · 2xl ≥1536 */
+  @media (min-width:1536px){[data-r~="h1"]{font-size:76px!important}[data-r~="heroimg"]{width:500px!important}[data-r~="lead"]{max-width:560px!important;font-size:18px!important}[data-r~="h2"]{font-size:52px!important}[data-r~="slide"]{width:min(400px,36vh)!important}[data-r~="quote"]{max-width:860px!important;font-size:36px!important}[data-r~="actname"]{font-size:32px!important}}
+  @media (max-width:1279px){}
+  @media (max-width:1023px){[data-r~="nav"]{padding:22px 32px!important}[data-r~="h1"]{font-size:52px!important}[data-r~="quote"]{font-size:26px!important;max-width:620px!important}[data-r~="heroimg"]{width:380px!important}}
+  @media (max-width:767px){[data-r~="navlinks"]{display:none!important}[data-r~="burger"]{display:flex!important}[data-r~="h1"]{font-size:44px!important}[data-r~="h2"]{font-size:34px!important}[data-r~="stmt"]{padding:96px 28px 104px!important}[data-r~="slide"]{width:min(300px,34vh)!important}}
+  @media (max-width:639px){[data-r~="nav"]{padding:14px 20px!important}[data-r~="foot"]{flex-direction:column!important;align-items:flex-start!important;padding:30px 22px!important}[data-r~="hero"]{padding:104px 22px 64px!important}[data-r~="heroimg"]{max-width:84vw!important}[data-r~="h1"]{font-size:36px!important;margin-top:40px!important}[data-r~="lead"]{font-size:15px!important}[data-r~="h2"]{font-size:30px!important}[data-r~="sticky"]{padding:76px 20px 28px!important}[data-r~="slide"]{width:min(62vw,38vh)!important}[data-r~="arrow"]{display:none!important}[data-r~="actname"]{font-size:22px!important}[data-r~="quote"]{font-size:22px!important}}
 </style>
 </helmet>
 
 <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
 
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90;background:radial-gradient(120% 80% at 50% 20%,#2a2620 0%,#17130f 100%);display:flex;flex-direction:column;padding:14px 20px 36px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+    <div style="display:flex;align-items:center;justify-content:space-between;min-height:44px">
+      <div style="font-size:15px;font-weight:600;letter-spacing:.2em;color:#e9e2d7">ENOOGI.STUDIO</div>
+      <div onClick="{{ toggleMenu }}" aria-label="Close menu" style="width:44px;height:44px;margin-right:-10px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:200;color:#e9e2d7;cursor:pointer">×</div>
+    </div>
+    <div style="margin-top:12vh;display:flex;flex-direction:column;gap:6px">
+      <a href="index.html" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#c8ab86">Home</a>
+      <a href="gallery.html" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#efe9df">Gallery</a>
+      <a href="gallery.html" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#efe9df">Commissions</a>
+      <a href="about.html" style="display:block;padding:10px 0;font-size:34px;font-weight:200;letter-spacing:-0.01em;text-decoration:none;cursor:pointer;color:#efe9df">About</a>
+    </div>
+    <div style="margin-top:auto;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.4)">Watercolour &amp; ink · Originals &amp; commissions</div>
+  </div>
+</sc-if>
   <!-- ===== NAV ===== -->
-  <div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;pointer-events:none">
+  <div data-r="nav" style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;pointer-events:none">
     <a href="index.html" style="font-size:15px;font-weight:600;letter-spacing:.2em;color:#e9e2d7;text-decoration:none;pointer-events:auto;transition:color .25s ease" style-hover="color:#f3ede2">ENOOGI.STUDIO</a>
-    <div style="display:flex;gap:36px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:auto">
+    <div data-r="burger" onClick="{{ toggleMenu }}" aria-label="Open menu" style="display:none;pointer-events:auto;width:44px;height:44px;margin-right:-10px;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer"><span style="display:block;width:22px;height:1px;background:#e9e2d7"></span><span style="display:block;width:22px;height:1px;background:#e9e2d7"></span></div>
+    <div data-r="navlinks" style="display:flex;gap:36px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;pointer-events:auto">
       <span style="color:#e9e2d7">Home</span>
       <a href="gallery.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Gallery</a>
       <a href="gallery.html" style="color:rgba(233,226,215,.6);text-decoration:none;transition:color .25s ease" style-hover="color:#e9e2d7">Commissions</a>
@@ -39,7 +62,7 @@
   </div>
 
   <!-- ===== HERO — THE LOBBY ===== -->
-  <section style="position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:150px 6vw 90px;background:linear-gradient(180deg,#37322b 0%,#302a21 46%,#28221b 70%,#1e1813 100%)">
+  <section data-r="hero" style="position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:150px 6vw 90px;background:linear-gradient(180deg,#37322b 0%,#302a21 46%,#28221b 70%,#1e1813 100%)">
     <!-- ceiling spotlight cone -->
     <div style="position:absolute;top:-8%;left:50%;transform:translateX(-50%);width:820px;max-width:120vw;height:980px;background:radial-gradient(46% 52% at 50% 26%,rgba(255,239,212,.17),rgba(255,239,212,.05) 46%,transparent 70%);pointer-events:none;filter:blur(6px);animation:lightBreath 9s ease-in-out infinite"></div>
     <!-- floor light pool -->
@@ -50,41 +73,41 @@
 
       <!-- the single lit masterpiece -->
       <div style="position:relative;margin-top:36px">
-        <img src="art/web_fox.png" alt="Siesta, featured watercolour fennec fox" style="display:block;width:420px;max-width:62vw;height:auto;box-shadow:0 70px 95px -30px rgba(0,0,0,.9)">
+        <img data-r="heroimg" src="art/web_fox.png" alt="Siesta, featured watercolour fennec fox" style="display:block;width:420px;max-width:62vw;height:auto;box-shadow:0 70px 95px -30px rgba(0,0,0,.9)">
       </div>
 
-      <h1 style="margin:52px 0 0;font-size:62px;font-weight:200;line-height:1.04;letter-spacing:-0.02em;color:#efe9df">Come in, and wander.</h1>
-      <p style="margin:24px 0 0;max-width:480px;font-size:16px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.64)">A warm little gallery of watercolour portraits — take your time and wander through, one room and one light at a time.</p>
+      <h1 data-r="h1" style="margin:52px 0 0;font-size:62px;font-weight:200;line-height:1.04;letter-spacing:-0.02em;color:#efe9df">Come in, and wander.</h1>
+      <p data-r="lead" style="margin:24px 0 0;max-width:480px;font-size:16px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.64)">A warm little gallery of watercolour portraits — take your time and wander through, one room and one light at a time.</p>
       <a href="gallery.html" style="margin-top:38px;display:inline-flex;align-items:center;gap:12px;padding:18px 40px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#221d18;text-decoration:none">Enter the gallery →</a>
     </div>
   </section>
 
   <!-- ===== SELECTED WORKS — SCROLL-PINNED, SIDEWAYS SNAP ===== -->
   <section ref="{{ setSection }}" style="position:relative;height:300vh;background:radial-gradient(120% 75% at 50% 26%,#2a2620 0%,#221e1a 56%,#17130f 100%)">
-    <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:70px 6vw 40px">
+    <div data-r="sticky" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:70px 6vw 40px">
       <div style="text-align:center">
         <div style="font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#c8ab86">Selected works</div>
-        <h2 style="margin:16px 0 0;font-size:44px;font-weight:200;letter-spacing:-0.015em;color:#efe9df">Currently on view</h2>
+        <h2 data-r="h2" style="margin:16px 0 0;font-size:44px;font-weight:200;letter-spacing:-0.015em;color:#efe9df">Currently on view</h2>
       </div>
 
       <div style="position:relative;width:100%;max-width:1120px;margin:4vh auto 0">
         <div ref="{{ setCarousel }}" style="position:relative;height:min(480px,48vh)">
-        <div data-slide onClick="{{ select0 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(0%) scale(1);opacity:1;filter:brightness(1);z-index:5;cursor:pointer">
+        <div data-r="slide" data-slide onClick="{{ select0 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(0%) scale(1);opacity:1;filter:brightness(1);z-index:5;cursor:pointer">
           <img src="art/web_corgi.png" alt="Biscuit" style="display:block;width:100%;height:auto;box-shadow:0 55px 85px -30px rgba(0,0,0,.85)">
         </div>
-        <div data-slide onClick="{{ select1 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(112%) scale(0.74);opacity:0.5;filter:brightness(0.62);z-index:3;cursor:pointer">
+        <div data-r="slide" data-slide onClick="{{ select1 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(112%) scale(0.74);opacity:0.5;filter:brightness(0.62);z-index:3;cursor:pointer">
           <img src="art/web_vending.png" alt="Self-Service" style="display:block;width:100%;height:auto;box-shadow:0 55px 85px -30px rgba(0,0,0,.85)">
         </div>
-        <div data-slide onClick="{{ select2 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(224%) scale(0.74);opacity:0;filter:brightness(0.62);z-index:1;cursor:pointer">
+        <div data-r="slide" data-slide onClick="{{ select2 }}" style="position:absolute;top:50%;left:50%;width:min(340px,34vh);transition:transform .75s cubic-bezier(.65,0,.25,1),opacity .75s ease,filter .75s ease;transform:translate(-50%,-50%) translateX(224%) scale(0.74);opacity:0;filter:brightness(0.62);z-index:1;cursor:pointer">
           <img src="art/web_loomcats.png" alt="Off the Clock" style="display:block;width:100%;height:auto;box-shadow:0 55px 85px -30px rgba(0,0,0,.85)">
         </div>
         </div>
-        <div onClick="{{ prev }}" style="position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;width:54px;height:54px;border-radius:50%;border:1px solid rgba(236,229,218,.3);display:flex;align-items:center;justify-content:center;color:#ece5da;font-size:20px;cursor:pointer;background:rgba(23,19,15,.4)">‹</div>
-        <div onClick="{{ next }}" style="position:absolute;top:50%;right:0;transform:translateY(-50%);z-index:10;width:54px;height:54px;border-radius:50%;border:1px solid rgba(236,229,218,.3);display:flex;align-items:center;justify-content:center;color:#ece5da;font-size:20px;cursor:pointer;background:rgba(23,19,15,.4)">›</div>
+        <div data-r="arrow" onClick="{{ prev }}" style="position:absolute;top:50%;left:0;transform:translateY(-50%);z-index:10;width:54px;height:54px;border-radius:50%;border:1px solid rgba(236,229,218,.3);display:flex;align-items:center;justify-content:center;color:#ece5da;font-size:20px;cursor:pointer;background:rgba(23,19,15,.4)">‹</div>
+        <div data-r="arrow" onClick="{{ next }}" style="position:absolute;top:50%;right:0;transform:translateY(-50%);z-index:10;width:54px;height:54px;border-radius:50%;border:1px solid rgba(236,229,218,.3);display:flex;align-items:center;justify-content:center;color:#ece5da;font-size:20px;cursor:pointer;background:rgba(23,19,15,.4)">›</div>
       </div>
 
       <div style="text-align:center;margin-top:3vh;min-height:74px">
-        <div style="font-size:27px;font-weight:300;letter-spacing:-0.01em;color:#ece5da">{{ activeName }} <span style="color:rgba(236,229,218,.45)">· {{ activeYear }}</span></div>
+        <div data-r="actname" style="font-size:27px;font-weight:300;letter-spacing:-0.01em;color:#ece5da">{{ activeName }} <span style="color:rgba(236,229,218,.45)">· {{ activeYear }}</span></div>
         <div style="margin-top:9px;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,229,218,.5)">{{ activeMeta }} · {{ activePrice }}</div>
       </div>
 
@@ -97,14 +120,14 @@
   </section>
 
   <!-- ===== STATEMENT — ANTICIPATION ===== -->
-  <section style="padding:130px 8vw 140px;background:#15120f;text-align:center">
+  <section data-r="stmt" style="padding:130px 8vw 140px;background:#15120f;text-align:center">
     <div style="width:42px;height:1px;background:#c8ab86;margin:0 auto 40px"></div>
-    <p style="max-width:720px;margin:0 auto;font-size:30px;font-weight:200;line-height:1.5;letter-spacing:-0.01em;color:#e7e0d4">Inside, there are no crowds and no clutter. Each painting waits in a room of its own — lit, and alone — the way something you love deserves to be seen.</p>
+    <p data-r="quote" style="max-width:720px;margin:0 auto;font-size:30px;font-weight:200;line-height:1.5;letter-spacing:-0.01em;color:#e7e0d4">Inside, there are no crowds and no clutter. Each painting waits in a room of its own — lit, and alone — the way something you love deserves to be seen.</p>
     <a href="gallery.html" style="margin-top:46px;display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#c8ab86;text-decoration:none">Begin the walkthrough →</a>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <div style="padding:42px 8vw;display:flex;align-items:center;justify-content:space-between;background:#120f0c;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(236,229,218,.07)">
+  <div data-r="foot" style="padding:42px 8vw;display:flex;align-items:center;justify-content:space-between;background:#120f0c;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(236,229,218,.07)">
     <div style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;letter-spacing:.2em;color:#e9e2d7">ENOOGI.STUDIO<span style="width:5px;height:5px;border-radius:50%;background:rgba(200,171,134,.4)"></span></div>
     <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.4)">Watercolour &amp; ink · Originals &amp; commissions</div>
   </div>
@@ -113,7 +136,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { idx: 0 };
+  state = { idx: 0, menuOpen: false };
   N = 3;
 
   componentDidMount(){
@@ -219,6 +242,8 @@ class Component extends DCLogic {
     ];
     const idx = this.state.idx, a = pieces[idx] || pieces[0];
     return {
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       setSection: (el) => { this.section = el; },
       setCarousel: (el) => { this.carousel = el; },
       setDots: (el) => { this.dots = el; },
