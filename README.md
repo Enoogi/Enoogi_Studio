@@ -27,5 +27,5 @@ python3 -m http.server
 - `support.js` is the page runtime; it loads React from unpkg.com.
 - Artwork lives in `art/` (web-sized PNGs).
 - Payments: PayPal checkout (PayPal, Venmo, cards) via the PayPal JS SDK, plus a Zelle QR code. Orders are confirmed manually in the admin tool.
-- Commission requests are front-end only — connect a form service to receive them.
+- Commission requests are emailed to enoogi.studio@gmail.com via FormSubmit (formsubmit.co), photos attached. The first submission triggers a one-time activation email.
 - The admin tool is intentionally not included.

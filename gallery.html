@@ -309,8 +309,8 @@
           <div style="margin-top:38px">
             <h3 style="margin:0;font-size:30px;font-weight:300;color:#efe9df;letter-spacing:-0.01em">Let's start with you</h3>
             <div style="margin-top:28px;display:flex;flex-direction:column;gap:20px">
-              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Your name</div><input placeholder="Full name" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"></div>
-              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Email</div><input placeholder="you@email.com" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Your name</div><input placeholder="Full name" autocomplete="name" value="{{ cf.name }}" onChange="{{ onName }}" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><sc-if value="{{ eName }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px;font-size:12px;line-height:1.5;color:#e0a088">{{ eName }}</div></sc-if></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Email</div><input type="email" placeholder="you@email.com" autocomplete="email" value="{{ cf.email }}" onChange="{{ onEmail }}" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><sc-if value="{{ eEmail }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px;font-size:12px;line-height:1.5;color:#e0a088">{{ eEmail }}</div></sc-if></div>
             </div>
           </div>
         </sc-if>
@@ -320,16 +320,21 @@
           <div style="margin-top:38px">
             <h3 style="margin:0;font-size:30px;font-weight:300;color:#efe9df;letter-spacing:-0.01em">Who am I painting?</h3>
             <div style="margin-top:24px;display:flex;gap:10px">
-              <div style="flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer">Pet</div>
-              <div style="flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer">House</div>
-              <div style="flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer">Car</div>
+              <div onClick="{{ setPet }}" style="position:relative;flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer"><sc-if value="{{ isPet }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if><div style="position:relative">Pet</div></div>
+              <div onClick="{{ setHouse }}" style="position:relative;flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer"><sc-if value="{{ isHouse }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if><div style="position:relative">House</div></div>
+              <div onClick="{{ setCar }}" style="position:relative;flex:1;text-align:center;padding:14px;border:1px solid rgba(236,229,218,.25);border-radius:3px;font-size:13px;font-weight:300;color:#ece5da;cursor:pointer"><sc-if value="{{ isCar }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:-1px;border:1px solid #c8ab86;background:rgba(200,171,134,.12);border-radius:3px"></div></sc-if><div style="position:relative">Car</div></div>
             </div>
-            <div style="margin-top:20px"><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Tell me about them</div><textarea rows="3" placeholder="Name, personality, anything you'd love captured…" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none;resize:vertical"></textarea></div>
+            <sc-if value="{{ eSubject }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px;font-size:12px;line-height:1.5;color:#e0a088">{{ eSubject }}</div></sc-if>
+            <div style="margin-top:20px"><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Tell me about them</div><textarea rows="3" value="{{ cf.about }}" onChange="{{ onAbout }}" placeholder="Name, personality, anything you'd love captured…" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none;resize:vertical"></textarea><sc-if value="{{ eAbout }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px;font-size:12px;line-height:1.5;color:#e0a088">{{ eAbout }}</div></sc-if></div>
             <div style="margin-top:20px"><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Reference photos</div>
-              <div style="border:1.5px dashed rgba(236,229,218,.3);border-radius:6px;padding:32px 20px;text-align:center;cursor:pointer">
+              <input ref="{{ fileRef }}" type="file" accept="image/*" multiple onChange="{{ onFiles }}" style="display:none">
+              <div onClick="{{ pickPhotos }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" style="border:1.5px dashed rgba(236,229,218,.3);border-radius:6px;padding:32px 20px;text-align:center;cursor:pointer">
                 <div style="font-size:15px;font-weight:300;color:#ece5da">Drag photos here, or browse</div>
                 <div style="margin-top:8px;font-size:12px;font-weight:300;color:rgba(236,229,218,.45)">Natural light &amp; sharp focus give the best results</div>
               </div>
+              <sc-if value="{{ hasPhotos }}" hint-placeholder-val="{{ false }}"><div style="margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:13px;font-weight:300;color:rgba(236,229,218,.75)"><span style="min-width:0;overflow-wrap:anywhere">{{ photoSummary }}</span><span onClick="{{ clearPhotos }}" style="flex:none;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#c8ab86;cursor:pointer">Clear</span></div></sc-if>
+              <sc-if value="{{ photoBusy }}" hint-placeholder-val="{{ false }}"><div style="margin-top:12px;font-size:13px;font-weight:300;color:rgba(236,229,218,.55)">Preparing photos…</div></sc-if>
+              <sc-if value="{{ ePhotos }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px;font-size:12px;line-height:1.5;color:#e0a088">{{ ePhotos }}</div></sc-if>
             </div>
           </div>
         </sc-if>
@@ -339,9 +344,9 @@
           <div style="margin-top:38px">
             <h3 style="margin:0;font-size:30px;font-weight:300;color:#efe9df;letter-spacing:-0.01em">The piece</h3>
             <div style="margin-top:28px;display:flex;flex-direction:column;gap:20px">
-              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Size</div><select style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><option style="color:#000">Small — 9" × 12"</option><option style="color:#000">Medium — 9" × 12"</option><option style="color:#000">Large — 9" × 12"</option></select></div>
-              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Medium</div><select style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><option style="color:#000">Watercolour &amp; ink</option><option style="color:#000">Loose ink sketch</option></select></div>
-              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Deadline (optional)</div><input placeholder="Any date you're working toward?" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Size</div><select value="{{ cf.size }}" onChange="{{ onSize }}" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><option style="color:#000">Small — 9" × 12"</option><option style="color:#000">Medium — 9" × 12"</option><option style="color:#000">Large — 9" × 12"</option></select></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Medium</div><select value="{{ cf.medium }}" onChange="{{ onMedium }}" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"><option style="color:#000">Watercolour &amp; ink</option><option style="color:#000">Loose ink sketch</option></select></div>
+              <div><div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(236,229,218,.5);margin-bottom:9px">Deadline (optional)</div><input placeholder="Any date you're working toward?" value="{{ cf.deadline }}" onChange="{{ onDeadline }}" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,.05);border:1px solid rgba(236,229,218,.2);border-radius:3px;padding:14px 16px;font:300 15px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#ece5da;outline:none"></div>
             </div>
           </div>
         </sc-if>
@@ -354,10 +359,12 @@
               <div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#c8ab86">How it works</div>
               <p style="margin:14px 0 0;font-size:14px;font-weight:300;line-height:1.75;color:rgba(236,229,218,.72)">Once I review your photos I'll confirm the details and timeline. A <strong style="font-weight:600;color:#ece5da">25% non-refundable deposit</strong> secures your commission; the balance is due once the finished piece is approved. I'll share previews before shipping — packaged and tracked. Turnaround is typically a few weeks.</p>
             </div>
-            <label style="margin-top:20px;display:flex;align-items:flex-start;gap:11px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(236,229,218,.7);cursor:pointer"><input type="checkbox" style="margin-top:3px"><span>I understand the deposit and process, and consent to my commission being shared on the studio's portfolio unless I request privacy.</span></label>
+            <label style="margin-top:20px;display:flex;align-items:flex-start;gap:11px;font-size:13px;font-weight:300;line-height:1.6;color:rgba(236,229,218,.7);cursor:pointer"><input type="checkbox" checked="{{ cf.agree }}" onChange="{{ onAgree }}" style="margin-top:3px"><span>I understand the deposit and process, and consent to my commission being shared on the studio's portfolio unless I request privacy.</span></label>
+            <sc-if value="{{ eAgree }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px;font-size:12px;line-height:1.5;color:#e0a088">{{ eAgree }}</div></sc-if>
           </div>
         </sc-if>
 
+        <sc-if value="{{ sendErr }}" hint-placeholder-val="{{ false }}"><div style="margin-top:24px;font-size:13px;line-height:1.6;color:#e0a088">{{ sendErr }}</div></sc-if>
         <!-- nav buttons -->
         <div style="margin-top:40px;display:flex;align-items:center;justify-content:space-between">
           <div onClick="{{ prev }}" style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,229,218,.5);cursor:pointer;visibility:{{ backVis }}">← Back</div>
@@ -365,7 +372,7 @@
             <div onClick="{{ next }}" style="padding:15px 34px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">Continue →</div>
           </sc-if>
           <sc-if value="{{ showSubmit }}" hint-placeholder-val="{{ false }}">
-            <div onClick="{{ submitFn }}" style="padding:15px 34px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">Send request →</div>
+            <div onClick="{{ submitFn }}" style="padding:15px 34px;background:#c8ab86;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#241f1a;cursor:pointer">{{ sendLabel }}</div>
           </sc-if>
         </div>
       </sc-if>
@@ -384,9 +391,10 @@
   </div>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"paypalClientId":{"editor":"text","default":"ASIb3GLagYiyzfgIywMqW8qM_yodacxSpqY0vcVB1hVdYMy2-6q09t7TimQSS5gJp6Cnh-yVqqedR_du","tsType":"string","section":"Payments"},"ppDigital":{"editor":"text","default":"","tsType":"string","section":"Payments"},"ppPrint":{"editor":"text","default":"","tsType":"string","section":"Payments"},"paypalMe":{"editor":"text","default":"","tsType":"string","section":"Payments"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"paypalClientId":{"editor":"text","default":"ASIb3GLagYiyzfgIywMqW8qM_yodacxSpqY0vcVB1hVdYMy2-6q09t7TimQSS5gJp6Cnh-yVqqedR_du","tsType":"string","section":"Payments"},"ppDigital":{"editor":"text","default":"","tsType":"string","section":"Payments"},"ppPrint":{"editor":"text","default":"","tsType":"string","section":"Payments"},"paypalMe":{"editor":"text","default":"","tsType":"string","section":"Payments"},"formEmail":{"editor":"text","default":"enoogi.studio@gmail.com","tsType":"string","section":"Commission form"}}'>
 class Component extends DCLogic {
-  state = { menuOpen:false, payMethod:'paypal', paid:false, orderRef:'', acquire:null, acqFraming:'framed', acqMode:'original', printOpt:'digital', added:false, commission:false, cstep:1, submitted:false, active:0 };
+  cfInit = () => ({ name:'', email:'', subject:'', about:'', size:'Small — 9" × 12"', medium:'Watercolour & ink', deadline:'', agree:false });
+  state = { cf: this.cfInit(), cfiles: [], cerr: {}, sending:false, sendErr:'', photoBusy:false, menuOpen:false, payMethod:'paypal', paid:false, orderRef:'', acquire:null, acqFraming:'framed', acqMode:'original', printOpt:'digital', added:false, commission:false, cstep:1, submitted:false, active:0 };
 
   componentDidMount(){
     const el = this.scrollEl; if(!el) return;
@@ -405,6 +413,63 @@ class Component extends DCLogic {
     }, { root: el, threshold: 0.32 });
     el.querySelectorAll('[data-reveal]').forEach(n=>obs.observe(n));
     this._obs = obs;
+  }
+  validate(step){
+    const f = this.state.cf, e = {};
+    if (step === 1) {
+      if (!f.name.trim()) e.name = 'Please enter your name.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'Please enter a valid email so I can reply.';
+    }
+    if (step === 2) {
+      if (!f.subject) e.subject = 'Choose what you’d like painted.';
+      if (f.about.trim().length < 10) e.about = 'Tell me a little about them (a sentence or two).';
+      if (!this.state.cfiles.length) e.photos = 'Add at least one reference photo.';
+    }
+    if (step === 4 && !f.agree) e.agree = 'Please confirm you’ve read how commissions work.';
+    return e;
+  }
+  async addFiles(list){
+    const imgs = [...(list || [])].filter(f => /^image\//.test(f.type)).slice(0, Math.max(0, 6 - this.state.cfiles.length));
+    if (!imgs.length) return;
+    this.setState({ photoBusy:true });
+    const out = [];
+    for (const f of imgs) {
+      try {
+        const url = URL.createObjectURL(f);
+        const img = await new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = url; });
+        const s = Math.min(1, 1800 / Math.max(img.naturalWidth, img.naturalHeight));
+        const c = document.createElement('canvas'); c.width = Math.round(img.naturalWidth * s); c.height = Math.round(img.naturalHeight * s);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        const blob = await new Promise(res => c.toBlob(res, 'image/jpeg', 0.85));
+        out.push(new File([blob], f.name.replace(/\.[^.]+$/, '') + '.jpg', { type:'image/jpeg' }));
+      } catch (e) { if (f.size < 2.5e6) out.push(f); }
+    }
+    this.setState(s => ({ cfiles: [...s.cfiles, ...out].slice(0, 6), photoBusy:false, cerr: { ...s.cerr, photos:null } }));
+  }
+  sendCommission(){
+    const e = { ...this.validate(1), ...this.validate(2), ...this.validate(4) };
+    if (Object.keys(e).length) { const step = (e.name || e.email) ? 1 : (e.subject || e.about || e.photos) ? 2 : 4; this.setState({ cerr:e, cstep:step }); return; }
+    const f = this.state.cf, to = (this.props.formEmail || 'enoogi.studio@gmail.com').trim();
+    this.setState({ sending:true, sendErr:'' });
+    let sink = document.getElementById('cf-sink');
+    if (!sink) { sink = document.createElement('iframe'); sink.name = sink.id = 'cf-sink'; sink.style.display = 'none'; document.body.appendChild(sink); }
+    const form = document.createElement('form');
+    form.method = 'POST'; form.action = 'https://formsubmit.co/' + encodeURIComponent(to); form.enctype = 'multipart/form-data'; form.target = 'cf-sink'; form.style.display = 'none';
+    const add = (n, v) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v; form.appendChild(i); };
+    add('_subject', 'New commission request — ' + f.name.trim() + ' (' + f.subject + ')');
+    add('_template', 'table'); add('_captcha', 'false'); add('_honey', '');
+    add('name', f.name.trim()); add('email', f.email.trim()); add('Subject', f.subject); add('About them', f.about.trim());
+    add('Size', f.size); add('Medium', f.medium); add('Deadline', f.deadline.trim() || '—'); add('Agreed to deposit terms', 'Yes');
+    add('Photos attached', String(this.state.cfiles.length));
+    this.state.cfiles.forEach((file, i) => { try { const inp = document.createElement('input'); inp.type = 'file'; inp.name = 'photo_' + (i + 1); const dt = new DataTransfer(); dt.items.add(file); inp.files = dt.files; form.appendChild(inp); } catch (e) {} });
+    document.body.appendChild(form);
+    let done = false;
+    const finish = ok => { if (done) return; done = true; clearTimeout(t); sink.onload = null; form.remove();
+      this.setState(ok ? { sending:false, submitted:true, cf:this.cfInit(), cfiles:[], cerr:{} } : { sending:false, sendErr:'Your request couldn’t be sent. Please check your connection and try again, or email enoogi.studio@gmail.com.' }); };
+    const t = setTimeout(() => finish(false), 45000);
+    sink.onload = () => finish(true);
+    form.submit();
   }
   componentDidUpdate(){ this._renderPP(); }
   _loadPP(client){
@@ -450,6 +515,7 @@ class Component extends DCLogic {
       });
     }, () => { this._ppSdk = null; this._ppKey = null; this.setState({ ppError:'PayPal didn’t load — check your connection, or choose Zelle.' }); });
   }
+  setF(k, v){ this.setState(s => ({ cf: { ...s.cf, [k]: v }, cerr: { ...s.cerr, [k]: null } })); }
   componentWillUnmount(){
     if(this._obs) this._obs.disconnect();
     if(this.scrollEl && this._onScroll) this.scrollEl.removeEventListener('scroll', this._onScroll);
@@ -558,7 +624,27 @@ class Component extends DCLogic {
 
       // commission
       commission: this.state.commission,
-      openCommission:()=>this.setState({commission:true,cstep:1,submitted:false}),
+      openCommission:()=>this.setState({commission:true,cstep:1,submitted:false,cerr:{},sendErr:''}),
+      cf: this.state.cf,
+      onName: e => this.setF('name', e.target.value), onEmail: e => this.setF('email', e.target.value),
+      onAbout: e => this.setF('about', e.target.value), onSize: e => this.setF('size', e.target.value),
+      onMedium: e => this.setF('medium', e.target.value), onDeadline: e => this.setF('deadline', e.target.value),
+      onAgree: e => this.setF('agree', e.target.checked),
+      setPet: () => this.setF('subject', 'Pet'), setHouse: () => this.setF('subject', 'House'), setCar: () => this.setF('subject', 'Car'),
+      isPet: this.state.cf.subject === 'Pet', isHouse: this.state.cf.subject === 'House', isCar: this.state.cf.subject === 'Car',
+      eName: this.state.cerr.name || '', eEmail: this.state.cerr.email || '', eSubject: this.state.cerr.subject || '',
+      eAbout: this.state.cerr.about || '', ePhotos: this.state.cerr.photos || '', eAgree: this.state.cerr.agree || '',
+      fileRef: this._fileRefCb || (this._fileRefCb = el => { this.fileEl = el; }),
+      pickPhotos: () => this.fileEl && this.fileEl.click(),
+      onFiles: e => { this.addFiles(e.target.files); e.target.value = ''; },
+      onDragOver: e => e.preventDefault(),
+      onDrop: e => { e.preventDefault(); this.addFiles(e.dataTransfer && e.dataTransfer.files); },
+      hasPhotos: this.state.cfiles.length > 0,
+      photoBusy: this.state.photoBusy,
+      photoSummary: this.state.cfiles.length + (this.state.cfiles.length === 1 ? ' photo: ' : ' photos: ') + this.state.cfiles.map(f => f.name).join(', '),
+      clearPhotos: () => this.setState({ cfiles: [] }),
+      sendLabel: this.state.sending ? 'Sending…' : 'Send request →',
+      sendErr: this.state.sendErr || '',
       closeCommission:()=>this.setState({commission:false}),
       submitted: this.state.submitted,
       notSubmitted: !this.state.submitted,
@@ -567,9 +653,9 @@ class Component extends DCLogic {
       step1: cs===1, step2: cs===2, step3: cs===3, step4: cs===4,
       showContinue: cs<4, showSubmit: cs===4,
       backVis: cs>1 ? 'visible' : 'hidden',
-      next:()=>this.setState(s=>({cstep:Math.min(4,s.cstep+1)})),
+      next:()=>{ const e = this.validate(cs); if (Object.keys(e).length) { this.setState({ cerr:e }); return; } this.setState(s=>({cstep:Math.min(4,s.cstep+1), cerr:{}})); },
       prev:()=>this.setState(s=>({cstep:Math.max(1,s.cstep-1)})),
-      submitFn:()=>this.setState({submitted:true}),
+      submitFn:()=>{ if (!this.state.sending) this.sendCommission(); },
     };
   }
 }
